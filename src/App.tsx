@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import Tag from './App.styles';
+import Items from './data/items';
+import AccountItem from './@types/AccountItem';
+import Categories from './data/categories';
+import { getCurrentMonth, filterListByMonth } from './helpers/DataHelper';
+import TableAccounts from './components/TableAccounts';
 
-function App() {
+const App = () => {
+
+  const [list, setList] = useState(Items);
+  const [filteredList, setFilteredList] = useState<AccountItem[]>([]);
+  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
+
+  useEffect(() => {
+    setFilteredList(filterListByMonth(list, currentMonth));
+  }, [list, currentMonth]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <Tag.Container>
+     <Tag.Header>
+       <Tag.HeaderTitle>Sistema Financeiro</Tag.HeaderTitle>
+     </Tag.Header>
+     <Tag.Body>
+       <TableAccounts accounts={filteredList}/>
+     </Tag.Body>
+   </Tag.Container>
   );
 }
 

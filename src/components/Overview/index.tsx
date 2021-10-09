@@ -10,12 +10,16 @@ const Overview = ({ currentMonth, changeMonth }: Props) => {
 
     const goToPreviousMonth = () => {
         const [year, month] = currentMonth.split('-');
-        changeMonth(`${year}-${+month - 1}`);
+        const newDate = new Date(+year, +month - 1, 1);
+        newDate.setMonth(newDate.getMonth() - 1);
+        changeMonth(`${newDate.getFullYear()}-${newDate.getMonth() + 1}`);
     }
 
     const goToNextMonth = () => {
         const [year, month] = currentMonth.split('-');
-        changeMonth(`${year}-${+month + 1}`);
+        const newDate = new Date(+year, +month - 1, 1);
+        newDate.setMonth(newDate.getMonth() + 1);
+        changeMonth(`${newDate.getFullYear()}-${newDate.getMonth() + 1}`);
     }
 
     return (

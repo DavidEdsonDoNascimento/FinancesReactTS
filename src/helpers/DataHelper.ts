@@ -12,3 +12,7 @@ export const filterListByMonth = (list: Array<AccountItem>, date: string) : Arra
     let filteredList = list.filter((item) => `${item.date.getMonth()+1}` === month && `${item.date.getFullYear()}` === year);
     return filteredList;
 }
+
+export const getDateFormattedBrazilianStandard = (date: Date) => {
+    return date.toLocaleString();
+}

@@ -1,11 +1,12 @@
 import AccountItem from '../../@types/AccountItem';
 import Tag from './styles';
+import AccountTableItem from './AccountTableItem';
 
 type Props = {
     accounts: AccountItem[]
 }
 
-const TableAccounts = ({accounts}: Props) => 
+const AccountTable = ({accounts}: Props) => 
 <Tag.Table>
     <thead>
         <tr>
@@ -17,16 +18,8 @@ const TableAccounts = ({accounts}: Props) =>
         </tr>
     </thead>
     <tbody>
-        {accounts.map(item => 
-        <tr key={item.id}>
-            <td>{item.id}</td>
-            <td>{item.title}</td>
-            <td>{item.date.toLocaleString()}</td>
-            <td>{item.category}</td>
-            <td>{item.value}</td>
-        </tr>
-        )}
+        {accounts.map(item => <AccountTableItem account={item} /> )}
     </tbody>
 </Tag.Table>
 
-export default TableAccounts;
+export default AccountTable;

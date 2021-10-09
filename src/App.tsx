@@ -4,7 +4,7 @@ import Items from './data/items';
 import AccountItem from './@types/AccountItem';
 import Categories from './data/categories';
 import { getCurrentMonth, filterListByMonth } from './helpers/DataHelper';
-import TableAccounts from './components/TableAccounts';
+import AccountTable from './components/AccountTable';
 
 const App = () => {
 
@@ -22,7 +22,7 @@ const App = () => {
        <Tag.HeaderTitle>Sistema Financeiro</Tag.HeaderTitle>
      </Tag.Header>
      <Tag.Body>
-       <TableAccounts accounts={filteredList}/>
+       <AccountTable accounts={filteredList}/>
      </Tag.Body>
    </Tag.Container>
   );

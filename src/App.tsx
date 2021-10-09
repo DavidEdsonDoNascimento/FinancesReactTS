@@ -13,6 +13,10 @@ const App = () => {
   const [filteredList, setFilteredList] = useState<AccountItem[]>([]);
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
 
+  const changeMonth = (newMonth: string) => {
+    setCurrentMonth(newMonth);
+  }
+
   useEffect(() => {
     setFilteredList(filterListByMonth(list, currentMonth));
   }, [list, currentMonth]);
@@ -23,7 +27,7 @@ const App = () => {
        <Tag.HeaderTitle>Sistema Financeiro</Tag.HeaderTitle>
      </Tag.Header>
      <Tag.Body>
-       <Overview currentMonth={currentMonth} />
+       <Overview currentMonth={currentMonth} changeMonth={changeMonth} />
        <AccountTable accounts={filteredList} />
      </Tag.Body>
    </Tag.Container>

@@ -1,4 +1,19 @@
 import AccountItem from './../@types/AccountItem';
+ 
+const MONTHS = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro'
+]
 
 export const getCurrentMonth = () => {
     const now = new Date();
@@ -13,6 +28,11 @@ export const filterListByMonth = (list: Array<AccountItem>, date: string) : Arra
     return filteredList;
 }
 
-export const getDateFormattedBrazilianStandard = (date: Date) => {
+export const getDateFormattedBrazilianStandard = (date: Date): string => {
     return date.toLocaleString();
+}
+
+export const getCurrentMonthName = (date: string) : string => {
+    const [year, currentMonth] = date.split('-');
+    return `${MONTHS[+currentMonth - 1]} de ${year}`;
 }

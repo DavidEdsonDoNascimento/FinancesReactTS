@@ -5,6 +5,7 @@ import AccountItem from './@types/AccountItem';
 import Categories from './data/categories';
 import { getCurrentMonth, filterListByMonth } from './helpers/DataHelper';
 import AccountTable from './components/AccountTable';
+import Overview from './components/Overview';
 
 const App = () => {
 
@@ -22,7 +23,8 @@ const App = () => {
        <Tag.HeaderTitle>Sistema Financeiro</Tag.HeaderTitle>
      </Tag.Header>
      <Tag.Body>
-       <AccountTable accounts={filteredList}/>
+       <Overview currentMonth={currentMonth} />
+       <AccountTable accounts={filteredList} />
      </Tag.Body>
    </Tag.Container>
   );

@@ -36,7 +36,7 @@ const Overview = ({ currentMonth, changeMonth, income, expense }: Props) => {
             <Tag.AccountingSection>
                 <Summary title="Receitas" value={income} />
                 <Summary title="Despesas" value={expense} />
-                <Summary title="Balanço" value={income - expense} />
+                <Summary title="Balanço" value={income - expense} color={(income - expense) < 0 ? '#b6174b' : '#698f3f'} />
             </Tag.AccountingSection>
         </Tag.Container>
     );

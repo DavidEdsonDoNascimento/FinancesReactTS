@@ -10,8 +10,8 @@ const Tag = {
         color: #888;
         margin-bottom: 5px;
     `,
-    Value: styled.div`
-        color: #000;
+    Value: styled.div<{ color?: string }>`
+        color: ${props => props.color ?? '#000'};
         text-align: center;
         font-weight: bold;
     `,

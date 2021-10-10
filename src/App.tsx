@@ -6,6 +6,7 @@ import Categories from './data/categories';
 import { getCurrentMonth, filterListByMonth } from './helpers/DataHelper';
 import AccountTable from './components/AccountTable';
 import Overview from './components/Overview';
+import Form from './components/Form';
 
 const App = () => {
 
@@ -17,6 +18,10 @@ const App = () => {
 
   const changeMonth = (newMonth: string) => {
     setCurrentMonth(newMonth);
+  }
+
+  const addAccountInTable = (account: AccountItem) => {
+    setList([ ...list, account ]);
   }
 
   useEffect(() => {
@@ -42,6 +47,7 @@ const App = () => {
      </Tag.Header>
      <Tag.Body>
        <Overview currentMonth={currentMonth} changeMonth={changeMonth} income={income} expense={expense} />
+       <Form addAccountInTable={addAccountInTable} listLength={list.length} />
        <AccountTable accounts={filteredList} />
      </Tag.Body>
    </Tag.Container>

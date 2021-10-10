@@ -1,8 +1,8 @@
-import AccountItem from "../../../@types/AccountItem"
+import AccountItem from "../../@types/AccountItem"
 import Tag from './styles';
-import { getDateFormattedBrazilianStandard } from './../../../helpers/DataHelper';
-import { getCoinFormattedBrazilianStandard } from './../../../helpers/CoinHelper';
-import Categories from '../../../data/categories';
+import { getDateFormattedBrazilianStandard } from '../../helpers/DataHelper';
+import { getCoinFormattedBrazilianStandard } from '../../helpers/CoinHelper';
+import Categories from '../../data/categories';
 
 type Props = {
     account: AccountItem

@@ -15,6 +15,11 @@ const categories: Category = {
         title: 'Salário',
         color: '#698f3f',
         expense: false
+    },
+    extra: {
+        title: 'Extra',
+        color: '#698f3f',
+        expense: false
     }
 }
 

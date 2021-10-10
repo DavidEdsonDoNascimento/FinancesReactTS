@@ -1,12 +1,16 @@
 import Tag from './styles';
 import { getCurrentMonthName } from './../../helpers/DataHelper';
+import Summary from './../Summary';
+
 
 type Props = {
     currentMonth: string;
     changeMonth: (newMonth: string) => void;
+    income: number;
+    expense: number;
 }
 
-const Overview = ({ currentMonth, changeMonth }: Props) => {
+const Overview = ({ currentMonth, changeMonth, income, expense }: Props) => {
 
     const goToPreviousMonth = () => {
         const [year, month] = currentMonth.split('-');
@@ -30,7 +34,9 @@ const Overview = ({ currentMonth, changeMonth }: Props) => {
                 <Tag.NavigationArrow onClick={goToNextMonth}>→</Tag.NavigationArrow>
             </Tag.CalendarSection>
             <Tag.AccountingSection>
-
+                <Summary title="Receitas" value={income} />
+                <Summary title="Despesas" value={expense} />
+                <Summary title="Balanço" value={income - expense} />
             </Tag.AccountingSection>
         </Tag.Container>
     );

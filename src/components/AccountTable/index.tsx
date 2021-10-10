@@ -1,6 +1,6 @@
 import AccountItem from '../../@types/AccountItem';
 import Tag from './styles';
-import AccountTableItem from './AccountTableItem';
+import AccountTableItem from '../AccountTableItem';
 
 type Props = {
     accounts: AccountItem[]

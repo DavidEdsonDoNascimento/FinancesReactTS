@@ -12,6 +12,8 @@ const App = () => {
   const [list, setList] = useState(Items);
   const [filteredList, setFilteredList] = useState<AccountItem[]>([]);
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
+  const [income, setIncome] = useState(0);
+  const [expense, setExpense] = useState(0);
 
   const changeMonth = (newMonth: string) => {
     setCurrentMonth(newMonth);
@@ -21,13 +23,25 @@ const App = () => {
     setFilteredList(filterListByMonth(list, currentMonth));
   }, [list, currentMonth]);
 
+  useEffect(() => {
+    const incomeOfMonth = filteredList.filter(item => Categories[item?.category]?.expense? null : item)
+    .reduce((contador, item) => contador + item.value, 0);
+    
+    const expenseOfMonth = filteredList.filter(item => Categories[item?.category]?.expense? item : null)
+    .reduce((contador, item) => contador + item.value, 0);
+
+    setIncome(incomeOfMonth);
+    setExpense(expenseOfMonth);
+    
+  }, [filteredList]);
+
   return (
    <Tag.Container>
      <Tag.Header>
        <Tag.HeaderTitle>Sistema Financeiro</Tag.HeaderTitle>
      </Tag.Header>
      <Tag.Body>
-       <Overview currentMonth={currentMonth} changeMonth={changeMonth} />
+       <Overview currentMonth={currentMonth} changeMonth={changeMonth} income={income} expense={expense} />
        <AccountTable accounts={filteredList} />
      </Tag.Body>
    </Tag.Container>

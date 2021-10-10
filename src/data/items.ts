@@ -35,6 +35,13 @@ const items: AccountItem[] = [
         category: 'salary',
         value: 2880,
         title: 'Salário'
+    },
+    {
+        id: 6,
+        date: new Date(2021, 9, 18),
+        category: 'extra',
+        value: 620,
+        title: 'Ajuste de Site'
     }
 ];
 

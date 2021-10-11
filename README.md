@@ -4,17 +4,21 @@ Basic application created using ReactJS to manage personal finances
 
 ## Required Configuration:
 
-- Node & yarn
+- [Node](https://nodejs.org)
 
 ## Installation:
 
-```
+```js
+npm install
+or
 yarn
 ```
 
 ## Start:
 
 ```
+npm start 
+or
 yarn start
 ```
 
